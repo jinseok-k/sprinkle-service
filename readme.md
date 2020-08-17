@@ -18,3 +18,13 @@ com.example.sprinkle.common.code.ErrorCode
 - 뿌리는 금액의 최소값은 인원수이며, 최대는 1천만원으로 한정
 - 뿌리기에 대한 줍기가 끝난 경우 유효시간(10분) 상관없이 마감 응답
 - 토큰관리와 줍기 테이블은 선점하는 방식으로 처리(저장 시 중복이면 재시도)
+
+### 실행 방법
+1. mariadb docker 실행
+docker run -d --name test-mariadb --net shared -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password -e MYSQL_USER=username -e MYSQL_PASSWORD=password -e MYSQL_DATABASE=users -v test-mariadb:/var/lib/maria mariadb:10.3.24 --character-set-server=utf8 --collation-server=utf8_general_ci
+
+2. mariadb 접속 후 sprinkle 스키마 생성
+
+3. sprinkle-service maven compile 실행
+
+4. sprinkle-service Application 실행
